@@ -12,8 +12,8 @@ pipeline{
     
     stage('Test'){
       steps{
-        sh './test_pass'
-        sh './test_fail'
+        sh './test_pass.sh'
+        sh './test_fail.sh'
       }
     }
   }
