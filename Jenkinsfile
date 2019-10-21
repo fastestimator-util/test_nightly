@@ -7,6 +7,7 @@ pipeline{
         sh '''
         echo $PWD
         echo $(ls)
+        chmod 775 -R .
         '''
       }
     }
