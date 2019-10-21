@@ -6,6 +6,7 @@ pipeline{
       steps {
         sh '''
         echo $PWD
+        echo $(ls)
         '''
       }
     }
