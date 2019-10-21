@@ -9,6 +9,12 @@ pipeline{
         '''
       }
     }
-
+    
+    stage('Test'){
+      steps{
+        sh './test_pass'
+        sh './test_fail'
+      }
+    }
   }
 }
