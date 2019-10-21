@@ -13,8 +13,8 @@ pipeline{
     
     stage('Test'){
       steps{
-        sh 'sudo chmod +x test_pass.sh'
-        sh 'sudo chmod +x test_fail.sh'
+        sh 'chmod +x test_pass.sh'
+        sh 'chmod +x test_fail.sh'
         sh './test_pass.sh'
         sh './test_fail.sh'
       }
