@@ -32,7 +32,7 @@ pipeline{
                 git clone https://github.com/fastestimator-util/fastestimator-misc.git fastestimator-misc
             '''
             withDockerRegistry(credentialsId: 'docker_hub_geez', url:'') {
-                sh '''' 
+                sh ''' 
                     echo $PWD 
                     docker build - < fastestimator-misc/docker/nightly/Dockerfile.cpu
                 '''
