@@ -7,8 +7,8 @@ pipeline{
         sh '''
         echo $PWD
         chmod 775 -R .
-        conda activate nightly
         '''
+        sh './test/install_dependencies.sh'
       }
     }
     
