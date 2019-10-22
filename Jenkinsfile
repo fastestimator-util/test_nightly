@@ -8,7 +8,7 @@ pipeline{
         echo $PWD
         chmod 775 -R .
         '''
-        sh './test/install_dependencies.sh'
+        sh './test/pytho.sh'
       }
     }
     
