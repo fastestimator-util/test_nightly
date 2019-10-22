@@ -35,6 +35,7 @@ pipeline{
                 sh ''' 
                     echo $PWD 
                     docker build - < fastestimator-misc/docker/nightly/Dockerfile.cpu
+                    docker push geez0219/fastestimator:test
                 '''
             }
 
