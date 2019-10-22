@@ -6,6 +6,7 @@ pipeline{
       steps {
         sh '''
         echo $PWD
+        echo $(ls)
         chmod 775 -R .
         '''
         sh './test/install_dependencies.sh'
