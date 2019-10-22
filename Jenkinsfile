@@ -21,8 +21,8 @@ pipeline{
     stage('Deploy'){
         steps('pypi'){
             sh ''' 
+            . /var/lib/jenkins/workspace/venv/bin/activate
             ./push_pypi.sh
-            
             '''
         }
     }
