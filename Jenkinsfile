@@ -37,7 +37,7 @@ pipeline{
                 cd Dockerfile
                 echo $(ls)
             '''
-            withDockerRegistry(credentialsId: 'docker_hub_geez' url:'') {
+            withDockerRegistry(credentialsId: 'docker_hub_geez', url:'') {
                 sh '''' 
                     echo $PWD 
                     docker build .
