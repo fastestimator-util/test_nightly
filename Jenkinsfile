@@ -35,7 +35,7 @@ pipeline{
                 mkdir Dockerhub-cpu 
                 cp fastestimator-misc/docker/nightly/Dockerfile.cpu Dockerhub-cpu/
                 mv Dockerhub-cpu/Dockerfile.cpu Dockerhub-cpu/Dockerfile
-                cd Dockerfile
+                cd Dockerhub-cpu
                 echo $(ls)
             '''
             withDockerRegistry(credentialsId: 'docker_hub_geez', url:'') {
