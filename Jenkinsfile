@@ -8,7 +8,7 @@ pipeline{
         echo $PWD
         chmod 775 -R .
         '''
-        sh './test/pytho.sh'
+        sh './test/install_dependencies.sh'
       }
     }
     
@@ -20,11 +20,16 @@ pipeline{
 
     stage('Deploy'){
         steps('pypi'){
-            sh ''' 
-            . /var/lib/jenkins/workspace/venv/bin/activate
-            ./push_pypi.sh
-            '''
+            // sh ''' 
+            // . /var/lib/jenkins/workspace/venv/bin/activate
+            // ./push_pypi.sh
+            // '''
+        }
+        steps('docker'){
+            git 'https://github.com/fastestimator-util/fastestimator-misc'
+            sh '''echo $PWD '''
         }
     }
+
   }
 }
