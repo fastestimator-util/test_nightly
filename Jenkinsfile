@@ -6,8 +6,8 @@ pipeline{
       steps {
         sh '''
         echo $PWD
-        echo $(ls)
         chmod 775 -R .
+        conda activate nightly
         '''
       }
     }
@@ -15,8 +15,16 @@ pipeline{
     stage('Test'){
       steps{
         sh './test_pass.sh'
-        sh './test_fail.sh'
       }
+    }
+
+    stage('Deploy'){
+        steps('pypi'){
+            sh ''' 
+            python setup.py sdist bdist_wheel
+            twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+            '''
+        }
     }
   }
 }

@@ -1,0 +1,24 @@
+enet121 test passed
+LeNet Adversarial test passed
+LeNet Mixup test passed
+LeNet MNIST test failed
+CVAE test failed
+CycleGAN test failed
+DCGAN test failed
+UNET Cub200 test failed
+UNET Montgomery test failed
+FST COCO test failed
+LSTM IMDB test failed
+DNN Housing test failed
+t04_pipeline_debug_benchmark test failed
+t10_unpaired_dataset test failed
+t08_scheduler_progressive_training test failed
+t01_basic_usage test failed
+t03_operator test failed
+t07_expand_data_dimension test failed
+t05_trace_debug_training test failed
+t02_using_data_in_disk test failed
+t09_learning_rate_controller test failed
+t11_interpretation test failed
+t06_TensorFilter_imbalanced_training test failed
+0 tests passed out of 11 tutorial tests
