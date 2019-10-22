@@ -9,7 +9,6 @@ pipeline{
         chmod 775 -R .
         '''
         sh './test/install_dependencies.sh'
-        sh 'pip3 install twine ipython ipykernel'
       }
     }
     
