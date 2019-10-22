@@ -4,9 +4,9 @@ pipeline{
         stage('Build') {
             steps {
                 sh '''
-                echo $PWD
-                echo $(ls)
-                chmod 775 -R .
+                    echo $PWD
+                    echo $(ls)
+                    chmod 775 -R .
                 '''
                 sh './test/install_dependencies.sh'
             }
@@ -14,7 +14,10 @@ pipeline{
         
         stage('Test'){
             steps{
-                sh './test/test_apphub.sh'
+                sh '''
+                    . /var/lib/jenkins/workspace/venv/bin/activate
+                    ./test/test_apphub.sh
+                '''
             }
         }
 
