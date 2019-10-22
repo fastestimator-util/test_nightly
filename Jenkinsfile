@@ -34,7 +34,7 @@ pipeline{
             withDockerRegistry(credentialsId: 'docker_hub_geez', url:'') {
                 sh ''' 
                     echo $PWD 
-                    docker build - < fastestimator-misc/docker/nightly/Dockerfile.cpu
+                    docker build -t geez0219/fastestimator:test - < fastestimator-misc/docker/nightly/Dockerfile.cpu
                     docker push geez0219/fastestimator:test
                 '''
             }
