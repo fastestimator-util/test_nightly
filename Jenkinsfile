@@ -27,16 +27,23 @@ pipeline{
         //     // '''
         // }
         steps('docker'){
-            
             sh '''
                 git clone https://github.com/fastestimator-util/fastestimator-misc.git fastestimator-misc
                 echo $PWD 
                 echo $(ls)
-                cp fastestimator-misc/docker/nightly/* ./
+                mkdir Dockerhub-cpu 
+                cp fastestimator-misc/docker/nightly/Dockerfile.cpu Dockerhub-cpu/
+                mv Dockerhub-cpu/Dockerfile.cpu Dockerhub-cpu/Dockerfile
+                cd Dockerfile
                 echo $(ls)
             '''
+            withDockerRegistry(credentialsId: 'docker_hub_geez') {
+                sh '''' 
+                    echo $PWD 
+                    docker build .
+                '''
+            }
         }
-    }
-
+    } 
   }
 }
