@@ -30,20 +30,14 @@ pipeline{
             sh '''
                 rm -rf ./fastestimator-misc
                 git clone https://github.com/fastestimator-util/fastestimator-misc.git fastestimator-misc
-                echo $PWD 
-                echo $(ls)
-                mkdir Dockerhub-cpu 
-                cp fastestimator-misc/docker/nightly/Dockerfile.cpu Dockerhub-cpu/
-                mv Dockerhub-cpu/Dockerfile.cpu Dockerhub-cpu/Dockerfile
-                cd Dockerhub-cpu
-                echo $(ls)
             '''
             withDockerRegistry(credentialsId: 'docker_hub_geez', url:'') {
                 sh '''' 
                     echo $PWD 
-                    docker build .
+                    docker build - < fastestimator-misc/docker/nightly/Dockerfile.cpu
                 '''
             }
+
         }
     } 
   }
