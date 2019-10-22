@@ -28,6 +28,9 @@ pipeline{
         // }
         steps('docker'){
             sh '''
+                if [ ! -d fastestimator-misc  ]; then
+                    rm -rf fastestimator-misc
+                fi
                 git clone https://github.com/fastestimator-util/fastestimator-misc.git fastestimator-misc
                 echo $PWD 
                 echo $(ls)
