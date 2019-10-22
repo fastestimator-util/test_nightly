@@ -27,7 +27,10 @@ pipeline{
         // }
         steps('docker'){
             git 'https://github.com/fastestimator-util/fastestimator-misc'
-            sh '''echo $PWD '''
+            sh '''
+                echo $PWD 
+                echo $(ls)
+            '''
         }
     }
 
