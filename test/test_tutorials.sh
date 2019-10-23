@@ -32,6 +32,9 @@ do
 done
 echo $cnt 'tests passed out of' ${FILECNT} 'tutorial tests' >> $report_file
 
+# geez 
+echo $report_file
+
 if [ $fail -eq 1 ] ; then
     exit 1
 else
