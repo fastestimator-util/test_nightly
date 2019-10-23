@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sh '''
                     . /var/lib/jenkins/workspace/venv/bin/activate
-                    ./test/test_image_segmentation/test_unet_montgomery.sh
+                    ./test/test_image_styletransfer/test_fst_coco.sh
                 '''
             }
         }
