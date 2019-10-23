@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sh '''
                     . /var/lib/jenkins/workspace/venv/bin/activate
-                    ./test/test_nlp/test_lstm_imdb.sh
+                    ./test/test_tabular/test_dnn_housing.sh
                 '''
             }
         }
