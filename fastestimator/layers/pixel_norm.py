@@ -12,8 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from fastestimator.trace.trace import Trace, TrainInfo, MonitorLoss  # isort:skip
-from fastestimator.trace.adapt import EarlyStopping, LRController, TerminateOnNaN
-from fastestimator.trace.io import Caricature, CSVLogger, GradCam, Logger, ModelSaver, Saliency, SlackNotification, \
-    TensorBoard, UMap, VisLogger
-from fastestimator.trace.metric import Accuracy, ConfusionMatrix, Dice, F1Score, Precision, Recall
+import tensorflow as tf
+from tensorflow.keras import layers
+
+
+class PixelNormalization(layers.Layer):
+    """ This layer normalizes each pixel by its L2-norm along the channel axis divided by the number of channels.
+
+    Args:
+        eps (float, optional): epsilon parameter which defaults to 1e-8
+    """
+    def __init__(self, eps=1e-8):
+        super().__init__()
+        self.eps = eps
+
+    def get_config(self):
+        return {'eps': self.eps}
+
+    def call(self, inputs):
+        return inputs * tf.math.rsqrt(tf.reduce_mean(tf.square(inputs), axis=-1, keepdims=True) + self.eps)

@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from fastestimator.trace.trace import Trace, TrainInfo, MonitorLoss  # isort:skip
-from fastestimator.trace.adapt import EarlyStopping, LRController, TerminateOnNaN
-from fastestimator.trace.io import Caricature, CSVLogger, GradCam, Logger, ModelSaver, Saliency, SlackNotification, \
-    TensorBoard, UMap, VisLogger
-from fastestimator.trace.metric import Accuracy, ConfusionMatrix, Dice, F1Score, Precision, Recall
+from fastestimator.xai.util.color_util import linear_decorelate_color, to_valid_rgb
+from fastestimator.xai.util.umap_util import Evaluator, FileCache
+from fastestimator.xai.util.fft_util import gaussian_kernel, blur_image, blur_image_fft, rfft2d_freqs, \
+    fft_vars_to_im, fft_vars_to_whitened_im
+from fastestimator.xai.util.vis_util import show_image, show_gray_image, show_text, fig_to_img
+from fastestimator.xai.util.saliency_util import SaliencyMask, GradientSaliency, IntegratedGradients

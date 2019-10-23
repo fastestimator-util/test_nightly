@@ -12,8 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from fastestimator.trace.trace import Trace, TrainInfo, MonitorLoss  # isort:skip
-from fastestimator.trace.adapt import EarlyStopping, LRController, TerminateOnNaN
-from fastestimator.trace.io import Caricature, CSVLogger, GradCam, Logger, ModelSaver, Saliency, SlackNotification, \
-    TensorBoard, UMap, VisLogger
-from fastestimator.trace.metric import Accuracy, ConfusionMatrix, Dice, F1Score, Precision, Recall
+import tensorflow as tf
+from tensorflow.keras import layers
+
+
+class ApplyBias(layers.Layer):
+    """Class to be used along with EqualizedLRDense and EqualizedLRConv2D for PGGAN
+
+    """
+    def build(self, input_shape):
+        self.b = self.add_weight(shape=input_shape[-1], initializer='zeros', trainable=True)
+
+    def call(self, x):
+        return x + self.b
