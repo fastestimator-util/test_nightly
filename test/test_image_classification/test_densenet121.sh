@@ -29,8 +29,6 @@ if ipython  ${path_temp}'/densenet121_cifar10_param.py'; then
 else
     exit 1
 fi
-
-echo $(ls ${path_temp})
 rm -rf ${path_temp}/tmp*
 rm  ${path_temp}${nb_param_filename}
 rm  ${path_temp}'/densenet121_cifar10_param.py'
