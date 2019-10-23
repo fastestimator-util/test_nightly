@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sh '''
                     . /var/lib/jenkins/workspace/venv/bin/activate
-                    ./test/test_image_generation/test_dcgan_mnist.sh
+                    ./test/test_image_segmentation/test_unet_cub200.sh
                 '''
             }
         }
