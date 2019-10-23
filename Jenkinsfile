@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sh '''
                     . /var/lib/jenkins/workspace/venv/bin/activate
-                    ./test/test_image_classification/test_lenet_mixup.sh
+                    ./test/test_image_classification/test_lenet_mnist.sh
                 '''
             }
         }
