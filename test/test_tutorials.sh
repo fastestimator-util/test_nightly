@@ -12,6 +12,8 @@ fail=0
 declare -a failedtest
 for filename in $FILES; do
     fname=$(basename -- "$filename")
+    extension="${fname##*.}"
+    fname="${fname%.*}"
     echo $fname"-geez"
     if [ $fname = "t11_interpretation" ]; then
         continue
@@ -20,9 +22,6 @@ for filename in $FILES; do
     if [ $fname = "t10_unpaired_dataset" ]; then
         continue
     fi
-
-    extension="${fname##*.}"
-    fname="${fname%.*}"
     echo ${path_temp}${fname}
     jupyter nbconvert --to script ${filename} --output ${path_temp}${fname}
     if ipython ${path_temp}${fname}'.py'; then
