@@ -12,6 +12,7 @@ fail=0
 declare -a failedtest
 for filename in $FILES; do
     fname=$(basename -- "$filename")
+    echo $fname"-geez"
     if [ $fname = "t11_interpretation" ]; then
         continue
     fi
