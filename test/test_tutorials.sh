@@ -12,11 +12,11 @@ fail=0
 declare -a failedtest
 for filename in $FILES; do
     fname=$(basename -- "$filename")
-    if [ fname = "t11_interpretation" ]; then
+    if [ $fname = "t11_interpretation" ]; then
         continue
     fi
 
-    if [ fname = "t10_unpaired_dataset" ]; then
+    if [ $fname = "t10_unpaired_dataset" ]; then
         continue
     fi
 
@@ -41,7 +41,7 @@ done
 echo $cnt 'tests passed out of' ${FILECNT} 'tutorial tests' >> $report_file
 
 # geez 
-echo $report_file
+cat $report_file
 
 if [ $fail -eq 1 ] ; then
     exit 1
