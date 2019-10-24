@@ -12,6 +12,14 @@ fail=0
 declare -a failedtest
 for filename in $FILES; do
     fname=$(basename -- "$filename")
+    if [ fname = "t11_interpretation.ipynb" ]; then
+        continue
+    fi
+
+    if [ fname = "t10_unpaired_dataset.ipynb" ]; then
+        continue
+    fi
+
     extension="${fname##*.}"
     fname="${fname%.*}"
     echo ${path_temp}${fname}
