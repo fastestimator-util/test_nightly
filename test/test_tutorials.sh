@@ -12,11 +12,11 @@ fail=0
 declare -a failedtest
 for filename in $FILES; do
     fname=$(basename -- "$filename")
-    if [ fname = "t11_interpretation.ipynb" ]; then
+    if [ fname = "t11_interpretation" ]; then
         continue
     fi
 
-    if [ fname = "t10_unpaired_dataset.ipynb" ]; then
+    if [ fname = "t10_unpaired_dataset" ]; then
         continue
     fi
 
