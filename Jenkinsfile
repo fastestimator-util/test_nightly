@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sh '''
                     . /var/lib/jenkins/workspace/venv/bin/activate
-                    ./test/test_tutorials.sh
+                    ./test/test_apphub.sh
                 '''
             }
         }
