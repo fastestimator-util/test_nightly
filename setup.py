@@ -19,7 +19,7 @@ def get_version():
     now = datetime.datetime.now()
     version = version_re.search(init).group(1)
     if is_nightly:
-        return "{}-{}{}{}".format(version, now.year, now.month, now.day)
+        return "{}-{}{}{}{}{}".format(version, now.year, now.month, now.day, now.hour, now.minute)
     else:
         return version
 
@@ -65,7 +65,8 @@ setup(
         'papermill',
         'tf-explain',
         'slackclient',
-        'nest_asyncio'
+        'nest_asyncio',
+        'pycocotools-fix'
     ],
     # Declare extra set for installation
     extras_require={},

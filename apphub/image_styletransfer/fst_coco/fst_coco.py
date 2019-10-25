@@ -99,11 +99,7 @@ def get_estimator(style_img_path=None,
                   steps_per_epoch=None,
                   validation_steps=None,
                   model_dir=tempfile.mkdtemp()):
-    train_csv, path = load_data(data_path)
-    if style_img_path is None:
-        style_img_path = tf.keras.utils.get_file(
             'kandinsky.jpg',
-            'https://storage.googleapis.com/download.tensorflow.org/example_images/Vassily_Kandinsky%2C_1913_'
             '-_Composition_7.jpg')
     style_img = cv2.imread(style_img_path)
     assert (style_img is not None), "Invalid style reference image"
