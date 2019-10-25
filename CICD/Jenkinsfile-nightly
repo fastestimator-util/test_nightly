@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh '''
+                    cp -r ./tutorial/* ./
+                    chmod 775 -R .
+                '''
+                sh './test/install_dependencies.sh'
+            }
+        }
+        
+        stage('Test'){
+            steps{
+                sh '''
+                    . /var/lib/jenkins/workspace/venv/bin/activate
+                    ./test/test_apphub.sh
+                '''
+            }
+        }
+    }
+}
