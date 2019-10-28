@@ -40,9 +40,9 @@ pipeline{
                 withDockerRegistry(credentialsId: 'docker_hub_geez', url:'') {
                     sh ''' 
                         docker build -t geez0219/fastestimator:nightly-cpu - < fastestimator-misc/docker/nightly/Dockerfile.cpu
-                        docker push fastestimator/fastestimator:nightly-cpu
-                        docker build -t /fastestimator:nightly-gpu - < fastestimator-misc/docker/nightly/Dockerfile.gpu
-                        docker push fastestimator/fastestimator:nightly-gpu
+                        docker push geez0219/fastestimator:nightly-cpu
+                        docker build -t geez0219/fastestimator:nightly-gpu - < fastestimator-misc/docker/nightly/Dockerfile.gpu
+                        docker push geez0219/fastestimator:nightly-gpu
                     '''
                 }
             }
