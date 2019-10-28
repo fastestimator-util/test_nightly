@@ -3,7 +3,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" # /home/
 path_tutorial=${DIR}'/../tutorial/' # /home/ubuntu/test_nightly/tutorial
 path_temp=$(dirname $(mktemp -u))/ # /tmp
 
-filename_abs=$path_tutorial't10_unpaired_dataset.ipynb'
+filename_abs=$path_tutorial't11_interpretation.ipynb'
 fname=t11_interpretation
 
 echo ${path_temp}${fname}

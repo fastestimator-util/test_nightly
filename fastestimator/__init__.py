@@ -19,7 +19,7 @@ from fastestimator.network import Network, build
 from fastestimator.pipeline import Pipeline
 from fastestimator.util.util import get_num_devices
 
-__version__ = '1.0-beta0'
+__version__ = '1.0'
 
 if get_num_devices() > 1:
     distribute_strategy = tf.distribute.MirroredStrategy()
